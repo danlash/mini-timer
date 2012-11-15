@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Timer Plugin</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="mini-timer.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var timer = new Timer();
+    
+        $('#start').click(function(){
+            timer.start();
+        });
+
+        $('#stop').click(function(){
+            timer.stop();
+        });
+
+        $('#reset').click(function(){
+            timer.reset();
+        });
+
+        setInterval(function(){
+            var formattedTime = timer.getSeconds();
+            $('#time').text(formattedTime);
+        }, 250)
+    })
+</script>
+</head>
+<body>
+
+<div id='time'></div>
+<div id='start'>start</div>
+<div id='stop'>stop</div>
+<div id='reset'>reset</div>
+
+</body>
+</html>
