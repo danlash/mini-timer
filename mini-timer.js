@@ -20,12 +20,11 @@ var Timer = (function(){
 		if (!this.running) return;
 
 		this.running = false;
-		this.runningSeconds += new Date() - this.startedAt;
+		this.runningSeconds += (new Date() - this.startedAt) / 1000;
 	};
 
 	exports.prototype.getSeconds = function getSeconds() {
-		var milliseconds = this.runningSeconds + (this.running ? new Date() - this.startedAt : 0);
-		return milliseconds / 1000;
+		return this.runningSeconds + (this.running ? new Date() - this.startedAt : 0) / 1000;
 	};
 
 	return exports;
